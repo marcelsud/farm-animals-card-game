@@ -101,16 +101,17 @@ function bindEvents() {
 
     if (flipped.length > 1) {
       if (flipped[0] === flipped[1]) {
-        correctCards.push(flipped[0]);
-        if (correctCards.length >= 6) {
-          alert("Congratulations! You won the game!");
-          return shuffleCards();
-        }
         $(`.card[data-card="${flipped[0]}"]`).off(".flip");
         $(`.card[data-card="${flipped[1]}"]`).off(".flip");
 
         if (audioEnabled) {
           createAudioElement(`sounds/yeah.mp3`, 1).play();
+        }
+
+        correctCards.push(flipped[0]);
+        if (correctCards.length >= 6) {
+          alert("Congratulations! You won the game!");
+          return shuffleCards();
         }
       } else {
         setTimeout(() => {
