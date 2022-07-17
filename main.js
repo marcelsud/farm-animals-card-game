@@ -1,13 +1,18 @@
 function shuffleCards() {
   $(".container").empty();
 
-  _.range(2).map((row) => {
+  const rows = _.range(2);
+  const cards = _.slice(_.shuffle(_.range(12)), 0, 6);
+  const mergedCards = _.shuffle(cards.concat(cards));
+  const chunks = [_.slice(mergedCards, 0, 6), _.slice(mergedCards, 6, 12)];
+
+  rows.map((row) => {
     $(".container").append(
       `<div
         class="row align-items-center row-cols-6 row-cols-sm-6 row-cols-md-6 g-6 cards-container-${row}"
       ></div>`
     );
-    _.shuffle(_.range(6)).map((card) => {
+    chunks[row].map((card) => {
       $(`.cards-container-${row}`).append(`
         <div class="col-md-2 col-xs-2 col-sm-2">
           <div class="card" data-card="${card}">
