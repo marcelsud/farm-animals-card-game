@@ -40,7 +40,7 @@ function createAudioElement(sound, volume = 0.5) {
   return audioElement;
 }
 
-function bindEvents() {
+function setupEnableAudio() {
   if (!audioEnabled) {
     $("#enableAudio").html(`
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
@@ -81,7 +81,9 @@ function bindEvents() {
       `);
     }
   });
+}
 
+function bindEvents() {
   $(".card").flip({
     front: ".back",
     back: ".front",
@@ -123,5 +125,6 @@ function bindEvents() {
 }
 
 $(document).ready(function () {
+  setupEnableAudio();
   shuffleCards();
 });
