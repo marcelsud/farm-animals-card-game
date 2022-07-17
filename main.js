@@ -22,7 +22,7 @@ function shuffleCards() {
               <img draggable="false" src="imgs/back.png" />
             </div>
             <div class="front" >
-              <img src="imgs/${card}.png" />
+              <img draggable="false" src="imgs/${card}.png" />
             </div>
           </div>
         </div>
