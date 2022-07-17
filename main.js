@@ -40,7 +40,6 @@ function bindEvents() {
         .filter((_, el) => $(el).data("flip-model")?.isFlipped === true)
         .map((_, el) => $(el).data("card"))
         .filter((_, card) => {
-          console.log(card);
           return correctCards.includes(card) === false;
         }),
     ];
@@ -49,9 +48,8 @@ function bindEvents() {
       if (flipped[0] === flipped[1]) {
         correctCards.push(flipped[0]);
         if (correctCards.length >= 6) {
-          alert("You won!");
-          $(".card").flip(false);
-          shuffleCards();
+          alert("Congratulations! You won the game!");
+          document.location.reload(true);
         }
       } else {
         setTimeout(() => {
