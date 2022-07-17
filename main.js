@@ -51,6 +51,8 @@ function bindEvents() {
           alert("Congratulations! You won the game!");
           document.location.reload(true);
         }
+        $(`.card[data-card="${flipped[0]}"]`).off(".flip");
+        $(`.card[data-card="${flipped[1]}"]`).off(".flip");
       } else {
         setTimeout(() => {
           flipped.map((card) => $(`.card[data-card="${card}"]`).flip(false));
